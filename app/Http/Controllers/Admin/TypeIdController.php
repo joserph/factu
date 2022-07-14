@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class TypeIdController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-typeId|crear-typeId|editar-typeId|borrar-typeId', ['only'=>['index']]);
+        $this->middleware('permission:crear-typeId', ['only'=>['create', 'store']]);
+        $this->middleware('permission:editar-typeId', ['only'=>['edit', 'update']]);
+        $this->middleware('permission:borrar-typeId', ['only'=>['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

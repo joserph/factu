@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PermissionRequest;
 
 class PermissionController extends Controller
 {
@@ -23,9 +24,9 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::paginate(5);
+        $permissions = Permission::paginate(10);
 
-        return view('permission.index', compact('permissions'));
+        return view('admin.permission.index', compact('permissions'));
     }
 
     /**
@@ -35,7 +36,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.permission.create');
     }
 
     /**
@@ -44,9 +45,11 @@ class PermissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PermissionRequest $request)
     {
-        //
+        $permission = Permission::create($request->all());
+
+        return redirect()->route('permissions.index')->with('status_success', 'Permiso creado con éxito');
     }
 
     /**
@@ -68,7 +71,9 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permission = Permission::find($id);
+
+        return view('admin.permission.edit', compact('permission'));
     }
 
     /**

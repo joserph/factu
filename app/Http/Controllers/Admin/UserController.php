@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -12,6 +12,13 @@ use Illuminate\Support\Arr;
 
 class UserController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-user|crear-user|editar-user|borrar-user', ['only'=>['index']]);
+        $this->middleware('permission:crear-user', ['only'=>['create', 'store']]);
+        $this->middleware('permission:editar-user', ['only'=>['edit', 'update']]);
+        $this->middleware('permission:borrar-user', ['only'=>['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

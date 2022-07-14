@@ -1,20 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\TypeId;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
-class PermissionController extends Controller
+class TypeIdController extends Controller
 {
-    function __construct()
-    {
-        $this->middleware('permission:ver-permision|crear-permision|editar-permision|borrar-permision', ['only'=>['index']]);
-        $this->middleware('permission:crear-permision', ['only'=>['create', 'store']]);
-        $this->middleware('permission:editar-permision', ['only'=>['edit', 'update']]);
-        $this->middleware('permission:borrar-permision', ['only'=>['destroy']]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +15,9 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::paginate(5);
+        $identificaciones = TypeId::paginate(5);
 
-        return view('permission.index', compact('permissions'));
+        return view('admin.typeId.index', compact('identificaciones'));
     }
 
     /**
@@ -34,7 +27,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**

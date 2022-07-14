@@ -11,7 +11,5 @@
     <a class="nav-link" href="{{ route('permissions.index') }}">
         <i class="fas fa-user-cog"></i><span>Permisos</span>
     </a>
-    <a class="nav-link" href="{{ route('blogs.index') }}">
-        <i class="fas fa-blog"></i><span>Blogs</span>
-    </a>
+    
 </li>

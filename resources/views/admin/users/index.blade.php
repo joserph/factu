@@ -40,9 +40,12 @@
                                         </td>
                                         <td>
                                             <a class="btn btn-outline-warning btn-sm" href="{{ route('users.edit', $user->id) }}" data-toggle="tooltip" data-placement="left" title="Editar"><i class="far fa-edit"></i></a>
-                                            {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
-                                                {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Eliminar']) !!}
-                                            {!! Form::close() !!}
+                                            @if ($rolAdmin->users[0]->id != $user->id)
+                                                {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
+                                                    {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Eliminar']) !!}
+                                                {!! Form::close() !!}
+                                            @endif
+                                            
                                         </td>
                                     </tr>
                                 @endforeach

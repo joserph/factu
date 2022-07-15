@@ -23,12 +23,13 @@ class UserController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function index()
     {
         $users = User::paginate(5);
-
-        return view('admin.users.index', compact('users'));
+        $rolAdmin = Role::with('users')->where('name', 'Super Administrador')->first();
+        //dd($rolAdmin->users[0]->id);
+        return view('admin.users.index', compact('users', 'rolAdmin'));
     }
 
     /**

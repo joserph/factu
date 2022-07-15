@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\TypeId;
 use Illuminate\Http\Request;
+use App\Http\Requests\TypeIdRequest;
 
 class TypeIdController extends Controller
 {
@@ -34,7 +35,7 @@ class TypeIdController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.typeId.create');
     }
 
     /**
@@ -43,9 +44,12 @@ class TypeIdController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TypeIdRequest $request)
     {
-        //
+        $typeId = TypeId::create($request->all());
+
+        return redirect()->route('identificaciones.index')
+            ->with('status_success', 'Tipo identificación creada con éxito');
     }
 
     /**
@@ -67,7 +71,8 @@ class TypeIdController extends Controller
      */
     public function edit($id)
     {
-        //
+        $typeId = TypeId::find($id);
+        return view('admin.typeId.edit', compact('typeId'));
     }
 
     /**
@@ -77,9 +82,12 @@ class TypeIdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TypeIdRequest $request, TypeId $typeId)
     {
-        //
+        $typeId->update($request->all());
+
+        return redirect()->route('identificaciones.index')
+            ->with('status_success', 'Tipo identificación actualizada con éxito');
     }
 
     /**
@@ -88,8 +96,11 @@ class TypeIdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TypeId $typeId)
     {
-        //
+        $typeId->delete();
+
+        return redirect()->route('identificaciones.index')
+            ->with('status_success', 'Tipo identificación eliminada con éxito');
     }
 }

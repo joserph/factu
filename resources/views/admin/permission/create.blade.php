@@ -7,7 +7,7 @@
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="/home">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="{{ route('permissions.index') }}">Lista de Permisos</a></div>
-                <div class="breadcrumb-item active">Permisos</div>
+                <div class="breadcrumb-item active">Crear Permiso</div>
             </div>
         </div>
         <div class="section-body">

@@ -9,7 +9,9 @@
         <i class="fas fa-user-cog"></i><span>Roles</span>
     </a>
     <a class="nav-link" href="{{ route('permissions.index') }}">
-        <i class="fas fa-user-cog"></i><span>Permisos</span>
+        <i class="fas fa-user-lock"></i><span>Permisos</span>
     </a>
-    
+    <a class="nav-link" href="{{ route('identificaciones.index') }}">
+        <i class="fas fa-id-card"></i><span>Identificaciones</span>
+    </a>
 </li>

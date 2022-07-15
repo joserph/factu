@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PermissionRequest extends FormRequest
+class TypeIdRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,20 +22,18 @@ class PermissionRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {   
-        $permission = $this->route()->parameter('permission');
-        dd($permission);
-        if($permission)
+    {
+        $typeId = $this->route()->parameter('typeId');
+        dd($typeId);
+        if($typeId)
         {
             return [
-                'name' => 'required|unique:permissions,name,' . $permission->id
+                'nombre' => 'required|unique:type_ids,nombre,' . $typeId->id
             ];
         }else{
             return [
-                'name' => 'required|unique:permissions,name'
+                'nombre' => 'required|unique:type_ids,nombre'
             ];
         }
-
-        
     }
 }

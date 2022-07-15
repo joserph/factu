@@ -9,6 +9,8 @@ class TypeId extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nombre', 'user_id', 'user_update'];
+
     // Realción uno a muchos inversa
     public function user()
     {

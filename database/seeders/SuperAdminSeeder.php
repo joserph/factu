@@ -22,7 +22,7 @@ class SuperAdminSeeder extends Seeder
             'password' => bcrypt('123456789')
         ]);
         
-        $rol = Role::create(['name' => 'Administrador']);
+        $rol = Role::create(['name' => 'Super Administrador']);
 
         $permissions = Permission::pluck('id', 'id')->all();
 

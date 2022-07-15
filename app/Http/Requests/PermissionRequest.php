@@ -22,9 +22,20 @@ class PermissionRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
-        return [
-            'name' => 'required|unique:permissions,name'
-        ];
+    {   
+        $permission = $this->route()->parameter('permission');
+
+        if($permission)
+        {
+            return [
+                'name' => 'required|unique:permissions,name,' . $permission->id
+            ];
+        }else{
+            return [
+                'name' => 'required|unique:permissions,name'
+            ];
+        }
+
+        
     }
 }

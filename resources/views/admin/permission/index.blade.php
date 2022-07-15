@@ -4,6 +4,10 @@
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Permisos</h3>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item"><a href="/home">Dashboard</a></div>
+                <div class="breadcrumb-item active">Permisos</div>
+            </div>
         </div>
         <div class="section-body">
             <div class="row">
@@ -25,7 +29,7 @@
                                 <tbody>
                                     @foreach ($permissions as $permission)
                                     <tr>
-                                        <th scope="row">{{ $permission->name }}</th>
+                                        <td scope="row">{{ $permission->name }}</td>
                                         <td>
                                             @can('editar-rol')
                                                 <a class="btn btn-outline-warning btn-sm" href="{{ route('permissions.edit', $permission->id) }}" data-toggle="tooltip" data-placement="left" title="Editar"><i class="far fa-edit"></i></a>

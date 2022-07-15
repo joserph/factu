@@ -4,6 +4,11 @@
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Crear Permiso</h3>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item"><a href="/home">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('permissions.index') }}">Lista de Permisos</a></div>
+                <div class="breadcrumb-item active">Permisos</div>
+            </div>
         </div>
         <div class="section-body">
             <div class="row">
@@ -16,7 +21,7 @@
                                 @include('admin.permission.partials.form')
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        {{ Form::button('<i class="far fa-save"></i> Guardar', ['type' => 'submit', 'class' => 'btn btn-primary']) }}
+                                        {{ Form::button('<i class="fas fa-plus-circle"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-info', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Crear']) }}
                                     </div>
                                 </div>
                                 

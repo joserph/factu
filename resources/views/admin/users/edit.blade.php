@@ -4,67 +4,24 @@
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Editar Usuario</h3>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item"><a href="/home">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('users.index') }}">Lista de Usuarios</a></div>
+                <div class="breadcrumb-item active">Editar Usuario</div>
+            </div>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            @if ($errors->any())
-                                <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                                    <strong>¡Revise los campos!</strong>
-                                    @foreach ($errors->all() as $error)
-                                        <span class="badge badge-danger">{{ $error }}</span>
-                                    @endforeach
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            @endif
+                            @include('custom.message')
 
                             {{ Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT']) }}
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group ">
-                                            {{ Form::label('name', 'Nombre') }}
-                                            {{ Form::text('name', null, ['class' => 'form-control']) }}
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            {{ Form::label('email', 'E-mail') }}
-                                            {{ Form::email('email', null, ['class' => 'form-control']) }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            {{ Form::label('password', 'Contraseña') }}
-                                            {{ Form::password('password', ['class' => 'form-control']) }}
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            {{ Form::label('confirm-password', 'Confirmar Contraseña') }}
-                                            {{ Form::password('confirm-password', ['class' => 'form-control']) }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            {{ Form::label('roles', 'Roles') }}
-                                            {{ Form::select('roles[]', $roles, [], ['class' => 'form-control']) }}
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        
-                                    </div>
-                                </div>
+                                @include('admin.users.partials.form')
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        {{ Form::button('<i class="fas fa-sync"></i> Actualizar', ['type' => 'submit', 'class' => 'btn btn-warning']) }}
+                                        {{ Form::button('<i class="fas fa-sync"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-warning', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Actualizar']) }}
                                     </div>
                                 </div>
                                 

@@ -24,7 +24,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::paginate(10);
+        $permissions = Permission::orderBy('id', 'desc')->paginate(10);
 
         return view('admin.permission.index', compact('permissions'));
     }
@@ -49,7 +49,8 @@ class PermissionController extends Controller
     {
         $permission = Permission::create($request->all());
 
-        return redirect()->route('permissions.index')->with('status_success', 'Permiso creado con éxito');
+        return redirect()->route('permissions.index')
+            ->with('status_success', 'Permiso creado con éxito');
     }
 
     /**
@@ -83,9 +84,12 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PermissionRequest $request, Permission $permission)
     {
-        //
+        $permission->update($request->all());
+
+        return redirect()->route('permissions.index')
+            ->with('status_success', 'Permiso actualizado con éxito');
     }
 
     /**
@@ -94,8 +98,11 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Permission $permission)
     {
-        //
+        $permission->delete();
+
+        return redirect()->route('permissions.index')
+            ->with('status_success', 'Permiso eliminado con éxito');
     }
 }

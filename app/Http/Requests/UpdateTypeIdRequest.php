@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TypeIdRequest extends FormRequest
+class UpdateTypeIdRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,9 @@ class TypeIdRequest extends FormRequest
     public function rules()
     {
         $typeId = $this->route()->parameter('identificacione');
-        
-        if($typeId)
-        {
-            return [
-                'nombre' => 'required|unique:type_ids,nombre,' . $typeId,
-            ];
-        }else{
-            return [
-                'nombre' => 'required|unique:type_ids,nombre'
-            ];
-        }
-        
+        //dd($typeId);
+        return [
+            'nombre' => 'required|unique:type_ids,nombre,' . $typeId,
+        ];
     }
 }

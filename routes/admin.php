@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function()
 {
-    Route::resource('identificaciones', TypeIdController::class);
-    Route::resource('permissions', PermissionController::class);
-    Route::resource('users', UserController::class);
-    Route::resource('roles', RoleController::class);
+    Route::resource('identificaciones', TypeIdController::class)->names('identificaciones');
+    Route::resource('permissions', PermissionController::class)->names('permissions');
+    Route::resource('users', UserController::class)->names('users');
+    Route::resource('roles', RoleController::class)->names('roles');
 });

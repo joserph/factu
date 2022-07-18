@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\TypeId;
 use Illuminate\Http\Request;
 use App\Http\Requests\TypeIdRequest;
+use App\Http\Requests\UpdateTypeIdRequest;
 
 class TypeIdController extends Controller
 {
@@ -23,7 +24,7 @@ class TypeIdController extends Controller
      */
     public function index()
     {
-        $identificaciones = TypeId::paginate(5);
+        $identificaciones = TypeId::paginate(10);
 
         return view('admin.typeId.index', compact('identificaciones'));
     }
@@ -82,8 +83,11 @@ class TypeIdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TypeIdRequest $request, TypeId $typeId)
+    public function update(TypeIdRequest $request, $id)
     {
+        
+        $typeId = TypeId::find($id);
+        
         $typeId->update($request->all());
 
         return redirect()->route('identificaciones.index')
@@ -96,8 +100,9 @@ class TypeIdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TypeId $typeId)
+    public function destroy($id)
     {
+        $typeId = TypeId::find($id);
         $typeId->delete();
 
         return redirect()->route('identificaciones.index')

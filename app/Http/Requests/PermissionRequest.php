@@ -24,7 +24,7 @@ class PermissionRequest extends FormRequest
     public function rules()
     {   
         $permission = $this->route()->parameter('permission');
-        dd($permission);
+        
         if($permission)
         {
             return [

@@ -9,6 +9,7 @@
         {{ Form::hidden('user_update', Auth::user()->id) }}
     @else
         {{ Form::hidden('user_id', Auth::user()->id) }}
+        {{ Form::hidden('user_update', Auth::user()->id) }}
     @endisset        
     
     

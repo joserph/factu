@@ -37,7 +37,7 @@
                                     <tbody>
                                         @foreach ($clients as $client)
                                             <tr>
-                                                <td scope="row">{{ $client->nombre }}</td>
+                                                <td scope="row"><a href="{{ route('clients.show', $client->id) }}">{{ $client->nombre }}</a></td>
                                                 <td scope="row">{{ $client->typeid->nombre }}</td>
                                                 <td scope="row">{{ $client->identificacion }}</td>
                                                 <td scope="row">{{ Str::limit($client->direccion, 15) }}</td>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TypeIdController;
 use App\Http\Controllers\Admin\UserController;
@@ -16,4 +17,5 @@ Route::group(['middleware' => ['auth']], function()
     Route::resource('users', UserController::class)->names('users');
     Route::resource('roles', RoleController::class)->names('roles');
     Route::resource('clients', ClientController::class)->names('clients');
+    Route::resource('plans', PlanController::class)->names('plans');
 });

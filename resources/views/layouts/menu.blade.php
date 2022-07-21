@@ -34,12 +34,17 @@
         </li>
     </ul>
 </li>
-<li class="dropdown {{ Request::is('admin/clients') ? 'active' : '' }}">
+<li class="dropdown {{ Request::is('admin/clients') || Request::is('admin/plans') ? 'active' : '' }}">
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cogs"></i><span>Administrar</span></a>
     <ul class="dropdown-menu">
         <li class="side-menus {{ Request::is('admin/clients') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('clients.index') }}">
                 <i class="fas fa-user-tie"></i><span>Clientes</span>
+            </a>
+        </li>
+        <li class="side-menus {{ Request::is('admin/plans') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('plans.index') }}">
+                <i class="fas fa-user-tie"></i><span>Planes</span>
             </a>
         </li>
     </ul>

@@ -28,14 +28,18 @@
         <div class="form-group">
             <div class="control-label">Estatus</div>
             <label class="custom-switch mt-2">
-                <input type="checkbox" name="estatus" class="custom-switch-input">
+                @isset($plan)
+                    <input type="checkbox" name="estatus" @if($plan->estatus == 'si') checked @endif class="custom-switch-input">
+                @else
+                    <input type="checkbox" name="estatus" checked class="custom-switch-input">
+                @endisset
                 <span class="custom-switch-indicator"></span>
                 <span class="custom-switch-description">Activo</span>
             </label>
         </div>
     </div>
 
-    @isset($client)
+    @isset($plan)
         {{ Form::hidden('user_update', Auth::user()->id) }}
     @else
         {{ Form::hidden('user_id', Auth::user()->id) }}

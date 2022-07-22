@@ -87,7 +87,9 @@ class PlanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $plan = Plan::find($id);
+
+        return view('admin.plans.edit', compact('plan'));
     }
 
     /**
@@ -99,7 +101,26 @@ class PlanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->estatus == 'on')
+        {
+            $estatus = 'si';
+        }else{
+            $estatus = 'no';
+        }
+
+        $plan = Plan::find($id);
+
+        $plan->update([
+            'numero_comprobante' => $request->numero_comprobante,
+            'precio' => $request->precio,
+            'periodo' => $request->periodo,
+            'detalle' => $request->detalle,
+            'estatus' => $estatus,
+            'user_update' => $request->user_update,
+        ]);
+
+        return redirect()->route('plans.index')
+            ->with('status_success', 'Plan actualizado con éxito'); 
     }
 
     /**
@@ -110,6 +131,10 @@ class PlanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $plan = Plan::find($id);
+        $plan->delete();
+
+        return redirect()->route('plans.index')
+            ->with('status_success', 'Plan eliminado con éxito'); 
     }
 }

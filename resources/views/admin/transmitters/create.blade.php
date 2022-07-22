@@ -3,11 +3,11 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar Plan</h3>
+            <h3 class="page__heading">Crear Emisor</h3>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="/home">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('plans.index') }}">Planes</a></div>
-                <div class="breadcrumb-item active">Editar Plan</div>
+                <div class="breadcrumb-item"><a href="{{ route('transmitters.index') }}">Emisores</a></div>
+                <div class="breadcrumb-item active">Crear Emisor</div>
             </div>
         </div>
         <div class="section-body">
@@ -17,11 +17,11 @@
                         <div class="card-body">
                             @include('custom.message')
 
-                            {{ Form::model($plan, ['route' => ['plans.update', $plan->id], 'method' => 'PUT']) }}
-                                @include('admin.plans.partials.form')
+                            {{ Form::open(['route' => 'transmitters.store', 'method' => 'POST']) }}
+                                @include('admin.transmitters.partials.form')
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        {{ Form::button('<i class="fas fa-sync"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-warning', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Actualizar']) }}
+                                        {{ Form::button('<i class="fas fa-plus-circle"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-info', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Crear']) }}
                                     </div>
                                 </div>
                                 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\EstablishmentController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\RoleController;
@@ -20,4 +21,5 @@ Route::group(['middleware' => ['auth']], function()
     Route::resource('clients', ClientController::class)->names('clients');
     Route::resource('plans', PlanController::class)->names('plans');
     Route::resource('transmitters', TransmitterController::class)->names('transmitters');
+    Route::resource('establishments', EstablishmentController::class)->names('establishments');
 });

@@ -3,11 +3,11 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">{{ $transmitter->nombre }}</h3>
+            <h3 class="page__heading">{{ $transmitter->razón_social }}</h3>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="/home">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="{{ route('transmitters.index') }}">Emisores</a></div>
-                <div class="breadcrumb-item active">{{ $transmitter->nombre }}</div>
+                <div class="breadcrumb-item active">{{ $transmitter->razón_social }}</div>
             </div>
         </div>
         <div class="section-body">

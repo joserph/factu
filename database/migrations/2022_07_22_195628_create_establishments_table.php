@@ -15,6 +15,24 @@ class CreateEstablishmentsTable extends Migration
     {
         Schema::create('establishments', function (Blueprint $table) {
             $table->id();
+
+            $table->string('nombre');
+            $table->string('codigo');
+            $table->string('url');
+            $table->string('nombre_comercial');
+            $table->string('direccion');
+            $table->string('correo_cco');
+            $table->string('estado');
+            $table->string('logo');
+
+            $table->unsignedBigInteger('transmitter_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_update');
+
+            $table->foreign('transmitter_id')->references('id')->on('transmitters');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_update')->references('id')->on('users');
+
             $table->timestamps();
         });
     }

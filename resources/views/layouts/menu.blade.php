@@ -34,7 +34,7 @@
         </li>
     </ul>
 </li>
-<li class="dropdown {{ Request::is('admin/clients') || Request::is('admin/plans') || Request::is('admin/transmitters') ? 'active' : '' }}">
+<li class="dropdown {{ Request::is('admin/clients') || Request::is('admin/plans') || Request::is('admin/transmitters') || Request::is('admin/establishments') ? 'active' : '' }}">
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cogs"></i><span>Administrar</span></a>
     <ul class="dropdown-menu">
         <li class="side-menus {{ Request::is('admin/clients') ? 'active' : '' }}">
@@ -50,6 +50,11 @@
         <li class="side-menus {{ Request::is('admin/transmitters') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('transmitters.index') }}">
                 <i class="fas fa-address-book"></i><span>Emisores</span>
+            </a>
+        </li>
+        <li class="side-menus {{ Request::is('admin/establishments') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('establishments.index') }}">
+                <i class="fab fa-houzz"></i><span>Establecimientos</span>
             </a>
         </li>
     </ul>

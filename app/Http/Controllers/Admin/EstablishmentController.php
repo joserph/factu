@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Establishment;
 use App\Models\Transmitter;
+use App\Http\Requests\EstablishmentRequest;
 
 class EstablishmentController extends Controller
 {
@@ -35,9 +36,9 @@ class EstablishmentController extends Controller
      */
     public function create()
     {
-        $transmitter = Transmitter::pluck('razón_social', 'id');
+        $transmitters = Transmitter::pluck('razon_social', 'id');
 
-        return view('admin.establishments.create', compact('transmitter'));
+        return view('admin.establishments.create', compact('transmitters'));
     }
 
     /**
@@ -46,7 +47,7 @@ class EstablishmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EstablishmentRequest $request)
     {
         //
     }

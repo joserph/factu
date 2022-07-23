@@ -13,7 +13,7 @@ class EstablishmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class EstablishmentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required',
+            'codigo' => 'required|numeric',
+            'url' => 'url',
+            'nombre_comercial' => '',
+            'direccion' => '',
+            'correo_cco' => 'email',
+            'estado' => 'required',
+            'logo' => '',
+            'transmitter_id' => 'required'
         ];
     }
 }

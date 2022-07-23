@@ -12,10 +12,10 @@ class TypeIdController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-typeId|crear-typeId|editar-typeId|borrar-typeId', ['only'=>['index']]);
-        $this->middleware('permission:crear-typeId', ['only'=>['create', 'store']]);
-        $this->middleware('permission:editar-typeId', ['only'=>['edit', 'update']]);
-        $this->middleware('permission:borrar-typeId', ['only'=>['destroy']]);
+        $this->middleware('permission:ver-identificacion|crear-identificacion|editar-identificacion|borrar-identificacion', ['only'=>['index']]);
+        $this->middleware('permission:crear-identificacion', ['only'=>['create', 'store']]);
+        $this->middleware('permission:editar-identificacion', ['only'=>['edit', 'update']]);
+        $this->middleware('permission:borrar-identificacion', ['only'=>['destroy']]);
     }
     /**
      * Display a listing of the resource.

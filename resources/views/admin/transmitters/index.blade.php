@@ -14,7 +14,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            @can('crear-transmitter')
+                            @can('crear-emisor')
                                 <a class="btn btn-outline-info btn-sm" href="{{ route('transmitters.create') }}" data-toggle="tooltip" data-placement="top" title="Crear">
                                     <i class="fas fa-plus-circle"></i>
                                 </a>
@@ -37,7 +37,7 @@
                                         @foreach ($transmitters as $transmitter)
                                             <tr>
                                                 <td class="text-center" scope="row"><a href="{{ route('transmitters.show', $transmitter->id) }}">{{ $transmitter->ruc }}</a></td>
-                                                <td class="text-center" scope="row">{{ $transmitter->razón_social }}</td>
+                                                <td class="text-center" scope="row">{{ $transmitter->razon_social }}</td>
                                                 <td class="text-center" scope="row">{{ $transmitter->direccion_matriz }}</td>
                                                 <td class="text-center" scope="row">{{ $transmitter->estado }}</td>
                                                 <td class="text-center" scope="row">{{ $transmitter->plan->periodo }}</td>
@@ -45,12 +45,12 @@
                                                     <a class="btn btn-outline-primary btn-sm" href="{{ route('transmitters.show', $transmitter->id) }}" data-toggle="tooltip" data-placement="left" title="Ver">
                                                         <i class="far fa-eye"></i>
                                                     </a>
-                                                    @can('editar-transmitter')
+                                                    @can('editar-emisor')
                                                         <a class="btn btn-outline-warning btn-sm" href="{{ route('transmitters.edit', $transmitter->id) }}" data-toggle="tooltip" data-placement="left" title="Editar">
                                                             <i class="far fa-edit"></i>
                                                         </a>
                                                     @endcan
-                                                    @can('borrar-transmitter')
+                                                    @can('borrar-emisor')
                                                         {!! Form::open(['method' => 'DELETE', 'route' => ['transmitters.destroy', $transmitter->id], 'style' => 'display:inline']) !!}
                                                             {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Eliminar', 'onclick' => 'return confirm("¿Seguro de eliminar?")']) !!}
                                                         {!! Form::close() !!}

@@ -14,7 +14,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            @can('crear-client')
+                            @can('crear-cliente')
                                 <a class="btn btn-outline-info btn-sm" href="{{ route('clients.create') }}" data-toggle="tooltip" data-placement="top" title="Crear">
                                     <i class="fas fa-plus-circle"></i>
                                 </a>
@@ -47,12 +47,12 @@
                                                     <a class="btn btn-outline-primary btn-sm" href="{{ route('clients.show', $client->id) }}" data-toggle="tooltip" data-placement="left" title="Ver">
                                                         <i class="far fa-eye"></i>
                                                     </a>
-                                                    @can('editar-client')
+                                                    @can('editar-cliente')
                                                         <a class="btn btn-outline-warning btn-sm" href="{{ route('clients.edit', $client->id) }}" data-toggle="tooltip" data-placement="left" title="Editar">
                                                             <i class="far fa-edit"></i>
                                                         </a>
                                                     @endcan
-                                                    @can('borrar-client')
+                                                    @can('borrar-cliente')
                                                         {!! Form::open(['method' => 'DELETE', 'route' => ['clients.destroy', $client->id], 'style' => 'display:inline']) !!}
                                                             {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Eliminar', 'onclick' => 'return confirm("¿Seguro de eliminar?")']) !!}
                                                         {!! Form::close() !!}

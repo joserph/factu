@@ -14,7 +14,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            @can('crear-typeId')
+                            @can('crear-identificacion')
                                 <a class="btn btn-outline-info btn-sm" href="{{ route('identificaciones.create') }}" data-toggle="tooltip" data-placement="top" title="Crear">
                                     <i class="fas fa-plus-circle"></i>
                                 </a>
@@ -34,12 +34,12 @@
                                             <tr>
                                                 <td scope="row">{{ $ident->nombre }}</td>
                                                 <td class="text-center">
-                                                    @can('editar-typeId')
+                                                    @can('editar-identificacion')
                                                         <a class="btn btn-outline-warning btn-sm" href="{{ route('identificaciones.edit', $ident->id) }}" data-toggle="tooltip" data-placement="left" title="Editar">
                                                             <i class="far fa-edit"></i>
                                                         </a>
                                                     @endcan
-                                                    @can('borrar-typeId')
+                                                    @can('borrar-identificacion')
                                                         {!! Form::open(['method' => 'DELETE', 'route' => ['identificaciones.destroy', $ident->id], 'style' => 'display:inline']) !!}
                                                             {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Eliminar', 'onclick' => 'return confirm("¿Seguro de eliminar?")']) !!}
                                                         {!! Form::close() !!}

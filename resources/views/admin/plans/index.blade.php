@@ -36,15 +36,12 @@
                                     <tbody>
                                         @foreach ($plans as $plan)
                                             <tr>
-                                                <td class="text-center" scope="row"><a href="{{ route('plans.show', $plan->id) }}">{{ $plan->numero_comprobante }}</a></td>
+                                                <td class="text-center" scope="row">{{ $plan->numero_comprobante }}</td>
                                                 <td class="text-center" scope="row">{{ $plan->precio }}</td>
                                                 <td class="text-center" scope="row">{{ $plan->periodo }}</td>
                                                 <td class="text-center" scope="row">{{ $plan->detalle }}</td>
                                                 <td class="text-center" scope="row">{{ $plan->estatus }}</td>
                                                 <td class="text-center" style="width: 110px">
-                                                    <a class="btn btn-outline-primary btn-sm" href="{{ route('plans.show', $plan->id) }}" data-toggle="tooltip" data-placement="left" title="Ver">
-                                                        <i class="far fa-eye"></i>
-                                                    </a>
                                                     @can('editar-plan')
                                                         <a class="btn btn-outline-warning btn-sm" href="{{ route('plans.edit', $plan->id) }}" data-toggle="tooltip" data-placement="left" title="Editar">
                                                             <i class="far fa-edit"></i>

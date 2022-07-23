@@ -11,10 +11,10 @@ class EstablishmentController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-establishment|crear-establishment|editar-establishment|borrar-establishment', ['only'=>['index']]);
-        $this->middleware('permission:crear-establishment', ['only'=>['create', 'store']]);
-        $this->middleware('permission:editar-establishment', ['only'=>['edit', 'update']]);
-        $this->middleware('permission:borrar-establishment', ['only'=>['destroy']]);
+        $this->middleware('permission:ver-establecimiento|crear-establecimiento|editar-establecimiento|borrar-establecimiento', ['only'=>['index']]);
+        $this->middleware('permission:crear-establecimiento', ['only'=>['create', 'store']]);
+        $this->middleware('permission:editar-establecimiento', ['only'=>['edit', 'update']]);
+        $this->middleware('permission:borrar-establecimiento', ['only'=>['destroy']]);
     }
     /**
      * Display a listing of the resource.

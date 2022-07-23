@@ -12,10 +12,10 @@ class PermissionController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-permision|crear-permision|editar-permision|borrar-permision', ['only'=>['index']]);
-        $this->middleware('permission:crear-permision', ['only'=>['create', 'store']]);
-        $this->middleware('permission:editar-permision', ['only'=>['edit', 'update']]);
-        $this->middleware('permission:borrar-permision', ['only'=>['destroy']]);
+        $this->middleware('permission:ver-permiso|crear-permiso|editar-permiso|borrar-permiso', ['only'=>['index']]);
+        $this->middleware('permission:crear-permiso', ['only'=>['create', 'store']]);
+        $this->middleware('permission:editar-permiso', ['only'=>['edit', 'update']]);
+        $this->middleware('permission:borrar-permiso', ['only'=>['destroy']]);
     }
     /**
      * Display a listing of the resource.

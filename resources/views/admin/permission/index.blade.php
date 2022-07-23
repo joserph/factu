@@ -14,7 +14,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            @can('crear-rol')
+                            @can('crear-permiso')
                                 <a class="btn btn-outline-info" href="{{ route('permissions.create') }}" data-toggle="tooltip" data-placement="left" title="Crear"><i class="fas fa-plus-circle"></i></a>
                             @endcan
                             <hr>
@@ -31,10 +31,10 @@
                                     <tr>
                                         <td scope="row">{{ $permission->name }}</td>
                                         <td>
-                                            @can('editar-rol')
+                                            @can('editar-permiso')
                                                 <a class="btn btn-outline-warning btn-sm" href="{{ route('permissions.edit', $permission->id) }}" data-toggle="tooltip" data-placement="left" title="Editar"><i class="far fa-edit"></i></a>
                                             @endcan
-                                            @can('borrar-rol')
+                                            @can('borrar-permiso')
                                                 {!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $permission->id], 'style' => 'display:inline']) !!}
                                                     {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Eliminar']) !!}
                                                 {!! Form::close() !!}

@@ -12,10 +12,10 @@ class TransmitterController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-transmitter|crear-transmitter|editar-transmitter|borrar-transmitter', ['only'=>['index']]);
-        $this->middleware('permission:crear-transmitter', ['only'=>['create', 'store']]);
-        $this->middleware('permission:editar-transmitter', ['only'=>['edit', 'update']]);
-        $this->middleware('permission:borrar-transmitter', ['only'=>['destroy']]);
+        $this->middleware('permission:ver-emisor|crear-emisor|editar-emisor|borrar-emisor', ['only'=>['index']]);
+        $this->middleware('permission:crear-emisor', ['only'=>['create', 'store']]);
+        $this->middleware('permission:editar-emisor', ['only'=>['edit', 'update']]);
+        $this->middleware('permission:borrar-emisor', ['only'=>['destroy']]);
     }
     /**
      * Display a listing of the resource.

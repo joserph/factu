@@ -17,7 +17,7 @@ class CreateTransmittersTable extends Migration
             $table->id();
 
             $table->string('ruc')->unique();
-            $table->string('razón_social');
+            $table->string('razon_social');
             $table->string('nombre_comercial');
             $table->string('direccion_matriz');
             $table->enum('ambiente', ['pruebas', 'produccion']);

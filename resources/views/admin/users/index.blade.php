@@ -14,7 +14,9 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <a class="btn btn-outline-info btn-sm" href="{{ route('users.create') }}" data-toggle="tooltip" data-placement="left" title="Crear"><i class="fas fa-plus-circle"></i></a>
+                            @can('crear-usuario')
+                                <a class="btn btn-outline-info btn-sm" href="{{ route('users.create') }}" data-toggle="tooltip" data-placement="left" title="Crear"><i class="fas fa-plus-circle"></i></a>
+                            @endcan
                             <hr>
                             @include('custom.message')
                             <table class="table table-sm">
@@ -39,11 +41,15 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a class="btn btn-outline-warning btn-sm" href="{{ route('users.edit', $user->id) }}" data-toggle="tooltip" data-placement="left" title="Editar"><i class="far fa-edit"></i></a>
+                                            @can('editar-usuario')
+                                                <a class="btn btn-outline-warning btn-sm" href="{{ route('users.edit', $user->id) }}" data-toggle="tooltip" data-placement="left" title="Editar"><i class="far fa-edit"></i></a>
+                                            @endcan
                                             @if ($rolAdmin->users[0]->id != $user->id)
-                                                {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
-                                                    {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Eliminar']) !!}
-                                                {!! Form::close() !!}
+                                                @can('borrar-usuario')
+                                                    {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
+                                                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Eliminar']) !!}
+                                                    {!! Form::close() !!}
+                                                @endcan
                                             @endif
                                             
                                         </td>

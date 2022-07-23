@@ -39,8 +39,8 @@
         <div class="form-group">
             <div class="control-label">estatus</div>
             <label class="custom-switch mt-2">
-                @isset($transmitter)
-                    <input type="checkbox" name="estatus" @if($transmitter->estatus == 'activo') checked @endif class="custom-switch-input">
+                @isset($establishment)
+                    <input type="checkbox" name="estatus" @if($establishment->estatus == 'activo') checked @endif class="custom-switch-input">
                 @else
                     <input type="checkbox" name="estatus" class="custom-switch-input">
                 @endisset

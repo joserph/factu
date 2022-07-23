@@ -23,7 +23,7 @@ class CreateEstablishmentsTable extends Migration
             $table->string('direccion');
             $table->string('correo_cco')->nullable();
             $table->enum('estatus', ['activo', 'inactivo']);
-            $table->string('logo');
+            $table->string('logo')->nullable();
 
             $table->unsignedBigInteger('transmitter_id');
             $table->unsignedBigInteger('user_id');

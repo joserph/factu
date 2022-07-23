@@ -55,6 +55,23 @@ class EstablishmentController extends Controller
         }else{
             $estatus = 'inactivo';
         }
+        //dd($request->all());
+        $establishment = Establishment::create([
+            'nombre' => $request->nombre,
+            'codigo' => $request->codigo,
+            'url' => $request->url,
+            'nombre_comercial' => $request->nombre_comercial,
+            'direccion' => $request->direccion,
+            'correo_cco' => $request->correo_cco,
+            'estatus' => $estatus,
+            'logo' => $request->logo,
+            'transmitter_id' => $request->transmitter_id,
+            'user_id' => $request->user_id,
+            'user_update' => $request->user_update,
+        ]);
+
+        return redirect()->route('establishments.index')
+            ->with('status_success', 'Establecimiento creado con éxito');
     }
 
     /**
@@ -76,7 +93,10 @@ class EstablishmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $establishment = Establishment::find($id);
+        $transmitters = Transmitter::pluck('razon_social', 'id');
+
+        return view('admin.establishments.edit', compact('establishment', 'transmitters'));
     }
 
     /**
@@ -86,9 +106,31 @@ class EstablishmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EstablishmentRequest $request, $id)
     {
-        //
+        $establishment = Establishment::find($id);
+        if($request->estatus == 'on')
+        {
+            $estatus = 'activo';
+        }else{
+            $estatus = 'inactivo';
+        }
+
+        $establishment->update([
+            'nombre' => $request->nombre,
+            'codigo' => $request->codigo,
+            'url' => $request->url,
+            'nombre_comercial' => $request->nombre_comercial,
+            'direccion' => $request->direccion,
+            'correo_cco' => $request->correo_cco,
+            'estatus' => $estatus,
+            'logo' => $request->logo,
+            'transmitter_id' => $request->transmitter_id,
+            'user_update' => $request->user_update,
+        ]);
+
+        return redirect()->route('establishments.index')
+            ->with('status_success', 'Establecimiento actualizado con éxito');
     }
 
     /**
@@ -99,6 +141,10 @@ class EstablishmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $establishment = Establishment::find($id);
+        $establishment->delete();
+
+        return redirect()->route('establishments.index')
+            ->with('status_success', 'Establecimiento eliminado con éxito');
     }
 }

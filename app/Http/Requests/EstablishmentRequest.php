@@ -31,7 +31,7 @@ class EstablishmentRequest extends FormRequest
             'direccion'         => '',
             'correo_cco'        => 'nullable|email',
             'estatus'           => '',
-            'logo'              => '',
+            'logo'              => 'nullable',
             'transmitter_id'    => 'required'
         ];
     }

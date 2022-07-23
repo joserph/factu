@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PlanSeeder::class);
         $this->call(TransmitterSeeder::class);
         $this->call(EstablishmentSeeder::class);
+        $this->call(EmissionPointSeeder::class);
     }
 }

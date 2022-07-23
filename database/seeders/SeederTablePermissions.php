@@ -55,6 +55,11 @@ class SeederTablePermissions extends Seeder
             'crear-emisor',
             'editar-emisor',
             'borrar-emisor',
+            // Operaciones sobre tabla punto-de-emision
+            'ver-punto-de-emision',
+            'crear-punto-de-emision',
+            'editar-punto-de-emision',
+            'borrar-punto-de-emision',
         ];
 
         foreach($permissions as $permission)

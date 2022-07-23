@@ -82,7 +82,9 @@ class EstablishmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $establishment = Establishment::find($id);
+
+        return view('admin.establishments.show', compact('establishment'));
     }
 
     /**

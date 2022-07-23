@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\EmissionPointController;
 use App\Http\Controllers\Admin\EstablishmentController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PlanController;
@@ -22,4 +23,5 @@ Route::group(['middleware' => ['auth']], function()
     Route::resource('plans', PlanController::class)->names('plans');
     Route::resource('transmitters', TransmitterController::class)->names('transmitters');
     Route::resource('establishments', EstablishmentController::class)->names('establishments');
+    Route::resource('emission_points', EmissionPointController::class)->names('emission_points');
 });

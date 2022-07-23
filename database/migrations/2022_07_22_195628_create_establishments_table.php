@@ -18,11 +18,11 @@ class CreateEstablishmentsTable extends Migration
 
             $table->string('nombre');
             $table->string('codigo');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('nombre_comercial');
             $table->string('direccion');
-            $table->string('correo_cco');
-            $table->string('estado');
+            $table->string('correo_cco')->nullable();
+            $table->enum('estatus', ['activo', 'inactivo']);
             $table->string('logo');
 
             $table->unsignedBigInteger('transmitter_id');

@@ -20,7 +20,7 @@ class PlanSeeder extends Seeder
             'precio' => '30',
             'periodo' => 'anual',
             'detalle' => 'Plan Anual',
-            'estatus' => 'si',
+            'estatus' => 'activo',
             'user_id' => 1,
             'user_update' => 1
         ]);
@@ -31,7 +31,7 @@ class PlanSeeder extends Seeder
             'precio' => '10',
             'periodo' => 'mensual',
             'detalle' => 'Plan Mensual',
-            'estatus' => 'si',
+            'estatus' => 'activo',
             'user_id' => 1,
             'user_update' => 1
         ]);

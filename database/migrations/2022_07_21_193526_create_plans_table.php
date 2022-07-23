@@ -19,8 +19,8 @@ class CreatePlansTable extends Migration
             $table->string('numero_comprobante');
             $table->string('precio');
             $table->enum('periodo', ['anual', 'mensual']);
-            $table->string('detalle');
-            $table->enum('estatus', ['si', 'no']);
+            $table->string('detalle')->nullable();
+            $table->enum('estatus', ['activo', 'inactivo']);
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('user_update');

@@ -24,15 +24,15 @@ class EstablishmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required',
-            'codigo' => 'required|numeric',
-            'url' => 'url',
-            'nombre_comercial' => '',
-            'direccion' => '',
-            'correo_cco' => 'email',
-            'estado' => 'required',
-            'logo' => '',
-            'transmitter_id' => 'required'
+            'nombre'            => 'required',
+            'codigo'            => 'required|numeric',
+            'url'               => 'nullable|url',
+            'nombre_comercial'  => '',
+            'direccion'         => '',
+            'correo_cco'        => 'nullable|email',
+            'estatus'           => '',
+            'logo'              => '',
+            'transmitter_id'    => 'required'
         ];
     }
 }

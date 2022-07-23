@@ -132,12 +132,12 @@
     </div>
     <div class="col-sm-4">
         <div class="form-group">
-            <div class="control-label">Estado</div>
+            <div class="control-label">estatus</div>
             <label class="custom-switch mt-2">
                 @isset($transmitter)
-                    <input type="checkbox" name="estado" @if($transmitter->estado == 'si') checked @endif class="custom-switch-input">
+                    <input type="checkbox" name="estatus" @if($transmitter->estatus == 'activo') checked @endif class="custom-switch-input">
                 @else
-                    <input type="checkbox" name="estado" class="custom-switch-input">
+                    <input type="checkbox" name="estatus" class="custom-switch-input">
                 @endisset
                 <span class="custom-switch-indicator"></span>
                 <span class="custom-switch-description">Activo</span>

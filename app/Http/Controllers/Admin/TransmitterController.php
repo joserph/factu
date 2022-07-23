@@ -62,11 +62,11 @@ class TransmitterController extends Controller
         }else{
             $regimen_microempresa = 'no';
         }
-        if($request->estado == 'on')
+        if($request->estatus == 'on')
         {
-            $estado = 'si';
+            $estatus = 'activo';
         }else{
-            $estado = 'no';
+            $estatus = 'inactivo';
         }
         //dd($request->all());
         $transmitter = Transmitter::create([
@@ -88,7 +88,7 @@ class TransmitterController extends Controller
             'resolucion_agente_retencion' => $request->resolucion_agente_retencion,
             'logo' => $request->logo,
             'firma' => $request->firma,
-            'estado' => $estado,
+            'estatus' => $estatus,
             'ruta_autorizados' => $request->ruta_autorizados,
             'fecha_inicio_plan' => $request->fecha_inicio_plan,
             'fecha_fin_plan' => $request->fecha_fin_plan,
@@ -150,11 +150,11 @@ class TransmitterController extends Controller
         }else{
             $regimen_microempresa = 'no';
         }
-        if($request->estado == 'on')
+        if($request->estatus == 'on')
         {
-            $estado = 'si';
+            $estatus = 'activo';
         }else{
-            $estado = 'no';
+            $estatus = 'inactivo';
         }
         if($request->contraseña_firma)
         {
@@ -188,7 +188,7 @@ class TransmitterController extends Controller
             'resolucion_agente_retencion' => $request->resolucion_agente_retencion,
             'logo' => $request->logo,
             'firma' => $request->firma,
-            'estado' => $estado,
+            'estatus' => $estatus,
             'ruta_autorizados' => $request->ruta_autorizados,
             'fecha_inicio_plan' => $request->fecha_inicio_plan,
             'fecha_fin_plan' => $request->fecha_fin_plan,

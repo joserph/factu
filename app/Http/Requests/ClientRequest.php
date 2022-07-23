@@ -28,21 +28,21 @@ class ClientRequest extends FormRequest
         if($client)
         {
             return [
-                'nombre' => 'required|string',
-                'tipo_identificacion' => 'required',
-                'identificacion' => 'required|numeric|unique:clients,identificacion,' . $client,
-                'direccion' => 'required',
-                'celular' => 'required',
-                'correo' => 'required|email|unique:clients,correo,' . $client
+                'nombre'                => 'required|string',
+                'tipo_identificacion'   => 'required',
+                'identificacion'        => 'required|numeric|unique:clients,identificacion,' . $client,
+                'direccion'             => 'required',
+                'celular'               => 'required',
+                'correo'                => 'required|email|unique:clients,correo,' . $client
             ];
         }else{
             return [
-                'nombre' => 'required|string',
-                'tipo_identificacion' => 'required',
-                'identificacion' => 'required|numeric|unique:clients,identificacion',
-                'direccion' => 'required',
-                'celular' => 'required',
-                'correo' => 'required|email|unique:clients,correo'
+                'nombre'                => 'required|string',
+                'tipo_identificacion'   => 'required',
+                'identificacion'        => 'required|numeric|unique:clients,identificacion',
+                'direccion'             => 'required',
+                'celular'               => 'required',
+                'correo'                => 'required|email|unique:clients,correo'
             ];
         }
         

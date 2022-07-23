@@ -24,11 +24,11 @@ class PlanRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero_comprobante' => 'required',
-            'precio' => 'required',
-            'periodo' => 'required',
-            'detalle' => '',
-            'estatus' => ''
+            'numero_comprobante'    => 'required',
+            'precio'                => 'required',
+            'periodo'               => 'required',
+            'detalle'               => 'nullable',
+            'estatus'               => ''
         ];
     }
 }

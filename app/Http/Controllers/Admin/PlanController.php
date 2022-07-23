@@ -48,9 +48,9 @@ class PlanController extends Controller
     {
         if($request->estatus == 'on')
         {
-            $estatus = 'si';
+            $estatus = 'activo';
         }else{
-            $estatus = 'no';
+            $estatus = 'inactivo';
         }
         //dd($request->all());
         $plan = Plan::create([
@@ -103,9 +103,9 @@ class PlanController extends Controller
     {
         if($request->estatus == 'on')
         {
-            $estatus = 'si';
+            $estatus = 'activo';
         }else{
-            $estatus = 'no';
+            $estatus = 'inactivo';
         }
 
         $plan = Plan::find($id);

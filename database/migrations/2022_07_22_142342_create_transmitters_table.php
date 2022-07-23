@@ -34,7 +34,7 @@ class CreateTransmittersTable extends Migration
             $table->string('resolucion_agente_retencion');
             $table->string('logo')->nullable();
             $table->string('firma')->nullable();
-            $table->string('estado');
+            $table->enum('estatus', ['activo', 'inactivo']);
             $table->string('ruta_autorizados');
             $table->date('fecha_inicio_plan');
             $table->date('fecha_fin_plan');

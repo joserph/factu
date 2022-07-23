@@ -36,11 +36,11 @@
                                     <tbody>
                                         @foreach ($establishments as $establishment)
                                             <tr>
-                                                <td scope="row"><a href="{{ route('establishments.show', $establishment->id) }}">{{ $establishment->nombre }}</a></td>
-                                                <td scope="row">{{ $establishment->codigo }}</td>
-                                                <td scope="row">{{ $establishment->direccion }}</td>
-                                                <td scope="row">{{ $establishment->emisor }}</td>
-                                                <td scope="row">{{ $establishment->estado }}</td>
+                                                <td class="text-center" scope="row"><a href="{{ route('establishments.show', $establishment->id) }}">{{ $establishment->nombre }}</a></td>
+                                                <td class="text-center" scope="row">{{ $establishment->codigo }}</td>
+                                                <td class="text-center" scope="row">{{ $establishment->direccion }}</td>
+                                                <td class="text-center" scope="row">{{ $establishment->transmitter->razon_social }}</td>
+                                                <td class="text-center" scope="row">{{ $establishment->estatus }}</td>
                                                 <td class="text-center" style="width: 110px">
                                                     <a class="btn btn-outline-primary btn-sm" href="{{ route('establishments.show', $establishment->id) }}" data-toggle="tooltip" data-placement="left" title="Ver">
                                                         <i class="far fa-eye"></i>

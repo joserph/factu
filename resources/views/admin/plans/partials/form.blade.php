@@ -29,7 +29,7 @@
             <div class="control-label">Estatus</div>
             <label class="custom-switch mt-2">
                 @isset($plan)
-                    <input type="checkbox" name="estatus" @if($plan->estatus == 'si') checked @endif class="custom-switch-input">
+                    <input type="checkbox" name="estatus" @if($plan->estatus == 'activo') checked @endif class="custom-switch-input">
                 @else
                     <input type="checkbox" name="estatus" checked class="custom-switch-input">
                 @endisset

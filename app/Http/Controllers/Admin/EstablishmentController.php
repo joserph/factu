@@ -49,7 +49,12 @@ class EstablishmentController extends Controller
      */
     public function store(EstablishmentRequest $request)
     {
-        //
+        if($request->estatus == 'on')
+        {
+            $estatus = 'activo';
+        }else{
+            $estatus = 'inactivo';
+        }
     }
 
     /**

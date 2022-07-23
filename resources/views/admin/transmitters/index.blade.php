@@ -39,7 +39,7 @@
                                                 <td class="text-center" scope="row"><a href="{{ route('transmitters.show', $transmitter->id) }}">{{ $transmitter->ruc }}</a></td>
                                                 <td class="text-center" scope="row">{{ $transmitter->razon_social }}</td>
                                                 <td class="text-center" scope="row">{{ $transmitter->direccion_matriz }}</td>
-                                                <td class="text-center" scope="row">{{ $transmitter->estado }}</td>
+                                                <td class="text-center" scope="row">{{ $transmitter->estatus }}</td>
                                                 <td class="text-center" scope="row">{{ $transmitter->plan->periodo }}</td>
                                                 <td class="text-center" style="width: 110px">
                                                     <a class="btn btn-outline-primary btn-sm" href="{{ route('transmitters.show', $transmitter->id) }}" data-toggle="tooltip" data-placement="left" title="Ver">

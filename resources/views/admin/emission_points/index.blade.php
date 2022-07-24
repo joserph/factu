@@ -14,7 +14,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            @can('crear-cliente')
+                            @can('crear-punto-de-emision')
                                 <a class="btn btn-outline-info btn-sm" href="{{ route('emission_points.create') }}" data-toggle="tooltip" data-placement="top" title="Crear">
                                     <i class="fas fa-plus-circle"></i>
                                 </a>
@@ -53,12 +53,12 @@
                                                     <a class="btn btn-outline-primary btn-sm" href="{{ route('emission_points.show', $emission_point->id) }}" data-toggle="tooltip" data-placement="left" title="Ver">
                                                         <i class="far fa-eye"></i>
                                                     </a>
-                                                    @can('editar-cliente')
+                                                    @can('editar-punto-de-emision')
                                                         <a class="btn btn-outline-warning btn-sm" href="{{ route('emission_points.edit', $emission_point->id) }}" data-toggle="tooltip" data-placement="left" title="Editar">
                                                             <i class="far fa-edit"></i>
                                                         </a>
                                                     @endcan
-                                                    @can('borrar-cliente')
+                                                    @can('borrar-punto-de-emision')
                                                         {!! Form::open(['method' => 'DELETE', 'route' => ['emission_points.destroy', $emission_point->id], 'style' => 'display:inline']) !!}
                                                             {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'title' => 'Eliminar', 'onclick' => 'return confirm("¿Seguro de eliminar?")']) !!}
                                                         {!! Form::close() !!}

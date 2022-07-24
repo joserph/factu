@@ -13,7 +13,7 @@ class EmissionPointRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class EmissionPointRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required',
+            'codigo' => 'required|numeric',
+            'secuencial_factura' => 'required|numeric',
+            'secuencial_liquidacion_compra' => 'required|numeric',
+            'secuencial_nota_credito' => 'required|numeric',
+            'secuencial_nota_debito' => 'required|numeric',
+            'secuencial_guia' => 'required|numeric',
+            'secuencial_retencion' => 'required|numeric',
+            'estatus' => '',
+            'establishment_id' => 'required',
         ];
     }
 }
